@@ -27,9 +27,11 @@ class RiscvGnuToolchain < Formula
 
     args = [
       "--prefix=#{prefix}",
-      "--with-cmodel=medany",
+      # "--with-cmodel=medany",
     ]
-    args << "--enable-multilib" unless build.with?("NOmultilib")
+    # args << "--enable-multilib" unless build.with?("NOmultilib")
+    args << "--with-arch=rv32gcv"
+    args << "--with-abi=ilp32d"
 
     # Workaround for M1
     # See https://github.com/riscv/homebrew-riscv/issues/47
